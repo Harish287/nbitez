@@ -7,7 +7,9 @@ import AddToCart from './AddToCart';
 import { ProductType } from './ProductCart';
 import { Link } from 'react-router-dom';
 import RoutePaths from '../config';
-import DOMPurify from 'dompurify'; // Import DOMPurify for sanitizing HTML
+
+ // Import DOMPurify for sanitizing HTML
+ import DOMPurify from 'dompurify';
 
 const ProductDetails = ({ product }: { product: ProductType }) => {
     
