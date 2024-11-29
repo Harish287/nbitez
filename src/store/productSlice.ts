@@ -4,14 +4,14 @@ import { ProductType } from "../components/ProductCart";
 
 
 export const productSlice = createSlice({
-    
-    name : 'products',
 
-    initialState : Array<ProductType>,
+    name: 'products',
 
-    reducers : {
+    initialState: Array<ProductType>,
 
-        fillProductsList : (state, action : PayloadAction<ProductType[]>) => {
+    reducers: {
+
+        fillProductsList: (state, action: PayloadAction<ProductType[]>) => {
 
             state = action.payload;
 
@@ -23,26 +23,26 @@ export const productSlice = createSlice({
 
 export const productWhishListSlice = createSlice({
 
-    name : 'wishlist',
+    name: 'wishlist',
 
-    initialState : Array<ProductType>,
+    initialState: Array<ProductType>,
 
-    reducers : {
+    reducers: {
 
-        fillWishList : (state, action : PayloadAction<string>) => {
+        fillWishList: (state, action: PayloadAction<string>) => {
 
             state = JSON.parse(action.payload);
 
             return state;
         },
 
-        addToWishlist : (state, action : PayloadAction<ProductType>) => {
+        addToWishlist: (state, action: PayloadAction<ProductType>) => {
 
             const getProducts = getItem(wishlistKeyName);
 
             if (getProducts) {
                 const oldProducts = JSON.parse(getProducts);
-                const newProducts : ProductType[] = [...oldProducts, action.payload];
+                const newProducts: ProductType[] = [...oldProducts, action.payload];
 
                 setItem(wishlistKeyName, newProducts);
                 state = newProducts;
@@ -51,12 +51,12 @@ export const productWhishListSlice = createSlice({
 
             state = [action.payload];
 
-            setItem(wishlistKeyName, [action.payload]); 
+            setItem(wishlistKeyName, [action.payload]);
 
             return state;
         },
 
-        deleteProductInWishlist(state, action : PayloadAction<ProductType>) {
+        deleteProductInWishlist(state, action: PayloadAction<ProductType>) {
 
             state = state.filter((product) => product.id != action.payload.id);
             setItem(wishlistKeyName, state);
@@ -68,26 +68,26 @@ export const productWhishListSlice = createSlice({
 
 export const productCartSlice = createSlice({
 
-    name : 'cart',
+    name: 'cart',
 
-    initialState : Array<ProductType>,
+    initialState: Array<ProductType>,
 
-    reducers : {
+    reducers: {
 
-        fillShoppingCart : (state, action : PayloadAction<string>) => {
+        fillShoppingCart: (state, action: PayloadAction<string>) => {
 
             state = JSON.parse(action.payload);
 
             return state;
         },
 
-        addToShoppingCart : (state, action : PayloadAction<ProductType>) => {
+        addToShoppingCart: (state, action: PayloadAction<ProductType>) => {
 
             const getProducts = getItem(cartKeyName);
 
             if (getProducts) {
                 const oldProducts = JSON.parse(getProducts);
-                const newProducts : ProductType[] = [...oldProducts, action.payload];
+                const newProducts: ProductType[] = [...oldProducts, action.payload];
 
                 setItem(cartKeyName, newProducts);
                 state = newProducts;
@@ -96,35 +96,38 @@ export const productCartSlice = createSlice({
 
             state = [action.payload];
 
-            setItem(cartKeyName, [action.payload]); 
+            setItem(cartKeyName, [action.payload]);
 
             return state;
         },
 
-        deleteProductInCart(state, action : PayloadAction<ProductType>) {
+        deleteProductInCart(state, action: PayloadAction<ProductType>) {
 
             state = state.filter((product) => product.id != action.payload.id);
             setItem(cartKeyName, state);
             return state;
         },
 
-        setProductQuantity(state, action : PayloadAction<{product : ProductType, quantitySaved : number}>) {
+        setProductQuantity(state, action: PayloadAction<{ product: ProductType, quantitySaved: number }>) {
+            console.log("sasdfa");
 
             const product = state.find((product) => product.id == action.payload.product.id);
 
-            if (product) {
-             product.quantity = action.payload.quantitySaved;
-             setItem(cartKeyName, state);
-           }
 
-           return state;
+            if (product) {
+                product.quantity = action.payload.quantitySaved;
+                console.log("product.quantity ", product.quantity);
+                setItem(cartKeyName, state);
+            }
+
+            return state;
         }
     }
 
 });
 
-export const {fillProductsList} = productSlice.actions;
+export const { fillProductsList } = productSlice.actions;
 
 export const { fillWishList, addToWishlist, deleteProductInWishlist } = productWhishListSlice.actions;
 
-export const {fillShoppingCart, addToShoppingCart, deleteProductInCart, setProductQuantity} = productCartSlice.actions;
+export const { fillShoppingCart, addToShoppingCart, deleteProductInCart, setProductQuantity } = productCartSlice.actions;

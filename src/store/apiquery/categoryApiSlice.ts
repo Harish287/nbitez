@@ -9,15 +9,14 @@ export const categoryApiSlice = createApi({
 
     endpoints : (builder) => ({
 
-        getAllCategories : builder.query(({
-            query : () => '/category',
-            providesTags : ['Categories']
-        })),
-
-        getCategory : builder.query({
-            query : (category) => `/category/${category.id}`,
-            providesTags : ['Categories']
-        }),
+        getCategory: builder.query({
+            query: (categoryId: number) => `/category/${categoryId}`,
+            providesTags: ['Categories'],
+          }),
+          getAllCategories: builder.query({
+            query: () => '/category',
+            providesTags: ['Categories'],
+          }),
 
         createCategory: builder.mutation({
             query : (category) => ({

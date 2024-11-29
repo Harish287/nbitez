@@ -18,6 +18,7 @@ export const UserDashboard = () => {
         <div className="user-dashboard p-3 border border-2 text-black">
             <h3>Dashboard</h3>
             <p className="opacity-75">From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details</p>
+            
         </div>
     )
 }

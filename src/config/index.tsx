@@ -1,3 +1,4 @@
+import TermsAndConditions from "../views/termsAndcondition"
 
 const RoutePaths = {
 
@@ -15,12 +16,15 @@ const RoutePaths = {
     signup: '/signup',
     passwordReset: '/reset-password',
     productView: '/product/:id',
+    about: '/about',
+    privacypolicy: '/privacypolicy',
+    termsandconditions:'/termsandconditions',
 
     // USERS PATHS
 
     userAccount: '/myaccount',
-    userOrders:  '/myaccount/orders',
-    userAdress:  '/myaccount/address',
+    userOrders: '/myaccount/orders',
+    userAdress: '/myaccount/address',
     userDetails: '/myaccount/details',
 
     // AMIN PATHS

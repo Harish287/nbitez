@@ -12,7 +12,8 @@ const AddToCart = ({ product, classSup = '', divClass = '' }: { product: Product
   return <>
     {
       isExistInCart ?
-        <div className={divClass}><span className={"fd-btn rounded-3 text-center " + classSup}><i className='bi bi-check-circle'></i></span></div>
+        <div className={divClass}><span className={"fd-btn rounded-3 text-center " + classSup}>
+          <i className='bi bi-check-circle'></i>Added</span></div>
         :
         <div className={divClass} onClick={(e) => {
             e.preventDefault()

@@ -37,7 +37,7 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
                     <p className='fw-bold opacity-75' dangerouslySetInnerHTML={{ __html: sanitizeHTML(product.desc) }}></p>
                     <div className="d-flex flex-wrap gap-2">
                         <h1 className="fw-bold fd-color-primary">₹{product.price}</h1>
-                        <h2 className="fw-bold align-self-end" style={{ textDecoration: "line-through", color: "black" }}>{product.old_price}</h2>
+                        <h2 className="fw-bold align-self-end" style={{ textDecoration: "line-through", color: "black" }}>₹{product.old_price}</h2>
                     </div><hr />
                     {/* <div className="categories-list d-flex flex-wrap gap-2">
                         <h5 className="fw-bold">Categories : </h5>
@@ -60,7 +60,7 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
                         </div>
                     </div> */}
                     <div className='d-flex flex-wrap gap-2 my-4'>
-                        <NumberCount product={product} min={1} />
+                        {/* <NumberCount product={product} min={1} /> */}
                         <AddToCart product={product} divClass='align-self-center' />
                     </div>
                     <div className="p-share d-flex flex-wrap gap-2 align-items-center">

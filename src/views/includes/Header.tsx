@@ -84,7 +84,7 @@ const Header: FC = () => {
                     </button>
                     <nav className="collapse navbar-collapse" id="headerNavbar">
                         <div className="container-fluid d-lg-flex justify-content-between">
-                            <ul className="navbar-nav d-lg-flex gap-3">
+                            <ul className="navbar-nav d-lg-flex gap-5">
                                 {
                                     navsBar.map((link) => {
                                         return <li key={link.name} className="navbar-item align-self-center">

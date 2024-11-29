@@ -35,23 +35,23 @@ const Checkout = () => {
                     <div className='d-flex gap-2 mt-5'>
                         <label className='w-50'>
                             <span>First Name *</span>
-                            <input type="text" name="firstname" defaultValue={user.firstname || ''} readOnly className="form-control w-100 rounded-0 p-2" />
+                            <input type="text" name="firstname" defaultValue={user.firstname || ''}  className="form-control w-100 rounded-0 p-2" />
                         </label>
                         <label className='w-50'>
                             <span>Last Name *</span>
-                            <input type="email" name="lastname" defaultValue={user.lastname || ''} readOnly className="form-control w-100 rounded-0 p-2" />
+                            <input type="email" name="lastname" defaultValue={user.lastname || ''}  className="form-control w-100 rounded-0 p-2" />
                         </label>
                     </div>
                     <div className='my-4'>
                         <label className='w-100'>
                             <span>Email *</span>
-                            <input type="email" name="email" defaultValue={user.email || ''} readOnly className="form-control w-100 rounded-0 p-2" />
+                            <input type="email" name="email" defaultValue={user.email || ''}  className="form-control w-100 rounded-0 p-2" />
                         </label>
                     </div>
                     <div>
                         <label className='w-100'>
                             <span>Phone *</span>
-                            <input type="text" name="phone" defaultValue={user.phone || ''} readOnly className="form-control w-100 rounded-0 p-2" />
+                            <input type="number" name="phone" defaultValue={user.phone || ''}  className="form-control w-100 rounded-0 p-2" />
                         </label>
                     </div>
                     <div className='my-4'>
@@ -67,7 +67,7 @@ const Checkout = () => {
                     <div>
                         <label className='w-100'>
                             <span>Address *</span>
-                            <input type="text" name="firstname" defaultValue={user.address} readOnly className="form-control w-100 rounded-0 p-2" />
+                            <input type="text" name="firstname" defaultValue={user.address}  className="form-control w-100 rounded-0 p-2" />
                         </label>
                     </div>
                     <div className='my-4'>
@@ -87,9 +87,9 @@ const Checkout = () => {
                     <div className="bg-white p-3 border border-1">
                         <h5 className="fw-bold">Checkout Summary</h5><hr />
                         <div className="opacity-75">
-                            <div><span className='fw-bold'>Sutotal :</span><span className='float-end opacity-75'>${getTotal()}</span></div><hr />
-                            <div><span className='fw-bold'>Coupon :</span><span className='float-end opacity-75'>$0.00</span></div><hr />
-                            <div><span className='fw-bold'>Total :</span><span className='float-end opacity-75'>${getTotal()}</span></div><hr />
+                            <div><span className='fw-bold'>Sutotal :</span><span className='float-end opacity-75'>₹{getTotal()}</span></div><hr />
+                            <div><span className='fw-bold'>Coupon :</span><span className='float-end opacity-75'>₹0.00</span></div><hr />
+                            <div><span className='fw-bold'>Total :</span><span className='float-end opacity-75'>₹{getTotal()}</span></div><hr />
                         </div>
                     </div>
                     <div className="bg-white p-3 border border-1 mt-4">

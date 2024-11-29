@@ -1,6 +1,6 @@
-import {useEffect} from 'react'
-import {Navigate, useNavigate} from "react-router-dom"
-import { LoginForm } from '../components/Form';
+import { useEffect } from 'react'
+import { Navigate, useNavigate } from "react-router-dom"
+import { LoginForm } from '../components/loginform';
 import Footer from './includes/Footer';
 import Header from './includes/Header';
 import RoutePaths from '../config';
@@ -10,9 +10,9 @@ const Login = () => {
 
   return (
     <>
-        <Header />
-        <LoginForm />
-        <Footer />
+      <Header />
+      <LoginForm />
+      <Footer />
     </>
   )
 }

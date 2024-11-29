@@ -14,7 +14,7 @@ export const BASE_STORAGE_URL = 'https://friedshop.username-blakvghost.com/stora
 
 const active = "d-block p-3 fd-nav-active"; // WHERE MENU IS ACTIVE CLASS 
 
-const inactive = "d-block p-3 text-black"; // WHERE MENU IS NOT ACTIVE CLASS
+const inactive = "d-block  text-black"; // WHERE MENU IS NOT ACTIVE CLASS
 
 export const cartKeyName = 'fd_shoppingcart'; // CART KEY NAME FOR LOCAL STORAGE
 

@@ -40,7 +40,7 @@ const ViewCart = ({ setShow }: { setShow: Function }) => {
                     }
                 </div><hr />
                 <div className="h-25 mb-5">
-                    <h5 className='w-100 fw-bold'>Sub Total : <span className="float-end">{'$' + getTotal()}</span></h5>
+                    <h5 className='w-100 fw-bold'>Sub Total : <span className="float-end">{'₹' + getTotal()}</span></h5>
                     <div className="v-cart my-3" onClick={hideCart}><Link to={RoutePaths.cart} className="fd-btn bg-white border border-1 text-black p-4 text-center">VIEW CART</Link></div>
                     <div className="v-checkout" onClick={hideCart}><Link to={RoutePaths.checkout} className="fd-btn p-4 text-center">CHECKOUT</Link></div>
                 </div>

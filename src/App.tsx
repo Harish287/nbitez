@@ -25,6 +25,11 @@ import AdminAccount from "./components/Admin/AdminAccount"
 import SlidesMain from "./components/Admin/SlidesMain"
 import PrivateRoute from "./components/PrivateRoute"
 import RedirectIfAuthenticate from "./components/RedirectIfAuthenticate"
+import About from "./views/About"
+import Privacypolicy from "./views/Privacypolicy"
+import CategoryDetails from "./views/CategoryDetails"
+import TermsAndConditions from "./views/termsAndcondition"
+
 
 function App() {
 
@@ -36,10 +41,15 @@ function App() {
       <Route path={RoutePaths.wishlist} element={<WishList />}></Route>
       <Route path={RoutePaths.blog} element={<BlogPage />}></Route>
       <Route path={RoutePaths.post} element={<PostView />}></Route>
+      <Route path={RoutePaths.about} element={<About />}></Route>
+      <Route path="/shop/category/:id" element={<CategoryDetails />} />
+      <Route path={RoutePaths.termsandconditions} element={<TermsAndConditions />}></Route>
+      <Route path={RoutePaths.privacypolicy} element={<Privacypolicy />}></Route>
       <Route path={RoutePaths.shopping} element={<ShoppingCart />}></Route>
-      <Route element={<PrivateRoute type={0}/>}>
+      <Route element={<PrivateRoute type={0} />}>
         <Route path={RoutePaths.checkout} element={<Checkout />}></Route>
       </Route>
+      <Route path={RoutePaths.home} element={<Home />}></Route>
       <Route path={RoutePaths.contact} element={<ContactUs />}></Route>
       <Route path={RoutePaths.team} element={<TeamMembers />}></Route>
       <Route element={<RedirectIfAuthenticate />} >
@@ -51,29 +61,29 @@ function App() {
 
       {/* USERS ROUTES */}
 
-      {/* <Route element={<PrivateRoute type={0}/>}> */}
+      <Route element={<PrivateRoute type={0} />}>
         <Route path={RoutePaths.userAccount} element={<UserAccount />}></Route>
-        <Route path={RoutePaths.userOrders} element={<UserAccount currentComponent={<UserOrders />}/>}></Route>
-        <Route path={RoutePaths.userAdress} element={<UserAccount currentComponent={<UserAddress />}/>}></Route>
-        <Route path={RoutePaths.userDetails} element={<UserAccount currentComponent={<UserDetails />}/>}></Route>
-      {/* </Route> */}
+        <Route path={RoutePaths.userOrders} element={<UserAccount currentComponent={<UserOrders />} />}></Route>
+        <Route path={RoutePaths.userAdress} element={<UserAccount currentComponent={<UserAddress />} />}></Route>
+        <Route path={RoutePaths.userDetails} element={<UserAccount currentComponent={<UserDetails />} />}></Route>
+      </Route>
 
       {/* ADMINS ROUTES */}
 
-      {/* <Route element={<PrivateRoute type={1} />} > */}
-        <Route path={RoutePaths.admin} element={<AdminPanel  currentComponent={<DashMain />} />}></Route>
-        <Route path={RoutePaths.adminProducts} element={<AdminPanel  currentComponent={<ProductMain />} />}></Route>
-        <Route path={RoutePaths.adminSlides} element={<AdminPanel  currentComponent={<SlidesMain />} />}></Route>
-        <Route path={RoutePaths.adminCategories} element={<AdminPanel  currentComponent={<CategoryMain />} />}></Route>
-        <Route path={RoutePaths.adminBlog} element={<AdminPanel  currentComponent={<BlogMain />} />}></Route>
-        <Route path={RoutePaths.adminCustomers} element={<AdminPanel  currentComponent={<CustomersMain />} />}></Route>
-        <Route path={RoutePaths.adminAccount} element={<AdminPanel  currentComponent={<AdminAccount />} />}></Route>
-      {/* </Route> */}
+      <Route element={<PrivateRoute type={1} />} >
+        <Route path={RoutePaths.admin} element={<AdminPanel currentComponent={<DashMain />} />}></Route>
+        <Route path={RoutePaths.adminProducts} element={<AdminPanel currentComponent={<ProductMain />} />}></Route>
+        <Route path={RoutePaths.adminSlides} element={<AdminPanel currentComponent={<SlidesMain />} />}></Route>
+        <Route path={RoutePaths.adminCategories} element={<AdminPanel currentComponent={<CategoryMain />} />}></Route>
+        <Route path={RoutePaths.adminBlog} element={<AdminPanel currentComponent={<BlogMain />} />}></Route>
+        <Route path={RoutePaths.adminCustomers} element={<AdminPanel currentComponent={<CustomersMain />} />}></Route>
+        <Route path={RoutePaths.adminAccount} element={<AdminPanel currentComponent={<AdminAccount />} />}></Route>
+      </Route>
 
       <Route path="*" element={<PageNotFound />}></Route>
 
     </Routes>
-    
+
   )
 }
 
