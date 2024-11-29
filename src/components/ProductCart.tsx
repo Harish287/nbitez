@@ -37,11 +37,11 @@ const ProductCart = (props: ProductType) => {
                 }
                     <div className="d-flex gap-3 position-relative">
                         <div className="position-relative h-100 col-3 product-img">
-                            <img src={(props.img)} alt={props.name} className="w-100 h-50" />
+                            <img src={(props.img)} alt={props.name} className="w-100 h-50 " />
                         </div>
                         <div className="w-75 pt-3">
                             <div>
-                                <Link to={"/product/" + props.id} className="product-name my-2 fw-bold text-dark">{props.name}</Link>
+                                <Link to={"/product/" + props.id} className="product-name my-2 fw-bold text-dark" >{props.name}</Link>
                             </div>
                             <div className='d-flex my-2'>
                                 <Reviews rating={props.reviews} />
@@ -78,7 +78,15 @@ const ProductCart = (props: ProductType) => {
                 <AddToWishlist product={props} classSup='position-absolute rounded-5' supStyle={{ padding: '5px 10px', top: '10%', right: '10%' }} />
                 <Link to={"/product/" + props.id} className="show position-absolute fd-btn rounded-5 d-none animate__animated animate__fadeInRight" style={{ padding: '5px 10px', top: '20%', right: '10%' }}> <i className="bi bi-eye"></i></Link>
                 <div className='text-center'>
-                    <Link to={"/product/" + props.id} className="product-name my-2 fw-bold text-dark">{props.name}</Link>
+                    <Link to={"/product/" + props.id} 
+                    style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 1,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                    }} 
+                    className="product-name my-2 fw-bold text-dark ">{props.name}</Link>
                 </div>
                 <div className='d-flex justify-content-center'>
                     <Reviews rating={props.reviews} />

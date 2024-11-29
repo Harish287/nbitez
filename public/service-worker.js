@@ -1,4 +1,4 @@
-const CACHE_NAME = 'friedshop_cache';
+const CACHE_NAME = 'Nbitez_cache';
 const OFFLINE_URL = '/'
 
 

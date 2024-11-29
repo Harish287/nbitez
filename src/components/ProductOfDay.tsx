@@ -45,7 +45,7 @@ const ProductOfDay = () => {
                             <div className='d-flex gap-2'>
                                 <NumberCount product={product.data[0]} min={1} />
                                 <AddToCart product={product.data[0]} divClass='align-self-center' />
-                            </div>z
+                            </div>
                         </div>
                     </div>
                 ) : (

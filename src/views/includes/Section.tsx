@@ -398,12 +398,12 @@ const Section = () => {
               <div className="d-flex justify-content-between border-bottom-2">
                 <h5>Deals Hot Of The Day</h5>
                 <div className="deals-direction d-flex gap-2">
-                  <a href="" className="text-dark">
+                  {/* <a href="" className="text-dark">
                     <i className="bi bi-arrow-left"></i>
                   </a>
                   <a href="" className="text-dark">
                     <i className="bi bi-arrow-right"></i>
-                  </a>
+                  </a> */}
                 </div>
               </div>
               <hr />

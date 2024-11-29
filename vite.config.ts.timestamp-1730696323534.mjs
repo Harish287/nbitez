@@ -1,6 +1,6 @@
 // vite.config.ts
-import { defineConfig } from "file:///D:/harish%20project/friedshop-front-react-master/node_modules/vite/dist/node/index.js";
-import react from "file:///D:/harish%20project/friedshop-front-react-master/node_modules/@vitejs/plugin-react/dist/index.mjs";
+import { defineConfig } from "file:///D:/harish%20project/Nbitez-react-master/node_modules/vite/dist/node/index.js";
+import react from "file:///D:/harish%20project/Nbitez-react-master/node_modules/@vitejs/plugin-react/dist/index.mjs";
 var vite_config_default = defineConfig({
   plugins: [react()]
 });
