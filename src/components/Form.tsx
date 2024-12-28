@@ -89,7 +89,7 @@ const SignUpForm = () => {
 }
 
 const ResetPassword = () => {
-    if (checkLogin()) {
+    if (check()) {
 
         return <Navigate to={RoutePaths.userAccount} replace />
     }
@@ -115,4 +115,8 @@ const ResetPassword = () => {
 }
 
 
-export {  SignUpForm, ResetPassword }
+export { SignUpForm, ResetPassword }
+
+function check() {
+    throw new Error("Function not implemented.");
+}

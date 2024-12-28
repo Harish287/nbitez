@@ -20,7 +20,13 @@ const SimpleProduct = ({product} : {product : ProductType}) => {
             </div>
             <div className="w-75">
                 <Link to={'/product/' + product.id}>
-                  <span className="product-name my-2 fw-bold text-dark">{product.name}</span>
+                  <span className="product-name my-2 fw-bold text-dark " style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 1,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                    }} >{product.name}</span>
                 </Link>
                 <div className='d-flex justify-content-between'>
                     <div className="d-flex mt-2 gap-2">

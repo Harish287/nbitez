@@ -45,7 +45,7 @@ const Footer = () => {
                         <div className="opacity-75">
                             <div><a href="/termsandconditions">Terms & Conditions</a></div>
                             <div><a href="/privacypolicy">Privacy Policy</a></div>
-                            <div><a href="#">Refund Policy</a></div>
+                            <div><a href="">Refund Policy</a></div>
 
                         </div>
                     </div>

@@ -11,7 +11,7 @@ export const LoginForm = () => {
 
     if (checkLogin()) {
     
-        return <Navigate to={RoutePaths.userAccount} replace />
+        return <Navigate to={RoutePaths.shop} replace />
     }
 
 

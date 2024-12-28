@@ -21,8 +21,34 @@ export const productApiSlice = createApi({
             providesTags: ['Products']
         })),
 
+
+        getBlog: builder.query({
+            query: () => 'blog',
+            // providesTags: ['blogs']
+        }),
+
+
+        getSliderOffer: builder.query({
+            query: () => 'slideroffer',
+            // providesTags: ['blogs']
+        }),
+
+        getCheckout: builder.mutation({
+            query: (data) => ({
+                url: 'Command',
+                method: 'POST',
+                body: data,
+            }),
+            // invalidatesTags: ['checkouts']
+        }),
+
         getProduct: builder.query({
             query: (id: string) => `/product/${id}`,
+            providesTags: ['Products']
+        }),
+
+        getUserAddress: builder.query({ 
+            query: (id: string) => `/shippingaddress/${id}`,
             providesTags: ['Products']
         }),
 
@@ -73,12 +99,16 @@ export const productApiSlice = createApi({
 
 export const {
     useGetAllProductsQuery,
+    useGetBlogQuery,
     useGetProductQuery,
     useSearchProductQuery,
     useGetRandomProductQuery,
     useGetBestProductsQuery,
     useUpdateProductMutation,
+    useGetCheckoutMutation,
     useCreateProductMutation,
     useDeleteProductMutation,
     useGetProductsByCategoryQuery,
+    useGetUserAddressQuery,
+    useGetSliderOfferQuery
 } = productApiSlice;

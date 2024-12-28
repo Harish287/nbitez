@@ -8,8 +8,22 @@ import SearchBar from '../components/SearchBar';
 import { Link } from 'react-router-dom';
 import Tags from '../components/Tags';
 import Archives from '../components/Archives';
+import { useGetBlogQuery } from "../store/apiquery/productApiSlice";
 
 const BlogPage = () => {
+
+  const { data, error, isLoading } = useGetBlogQuery({});
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error fetching blogs!</div>;
+  }
+
+  console.log("aaa", data.data);
+
 
   return (
     <>
@@ -22,15 +36,15 @@ const BlogPage = () => {
           </div>
           <aside className='col-12 col-lg-3 mt-4 mt-lg-0'>
             <SearchBar />
-            <div className="category-list text-black bg-white w-100 border border-1 fd-hover-border-primary p-3 my-5">
-              <h5>Categories</h5><hr />
-              {/* <div className="d-flex flex-column gap-2">
+            {/* <div className="category-list text-black bg-white w-100 border border-1 fd-hover-border-primary p-3 my-5"> */}
+            {/* <h5>Categories</h5><hr /> */}
+            {/* <div className="d-flex flex-column gap-2">
                 {
                   apiCategory.map((category) => <Category category={category} key={category.id} />)
                 }
               </div> */}
-            </div>
-            <div className="top-posts text-black bg-white w-100 border border-1 fd-hover-border-primary p-3 my-5">
+            {/* </div> */}
+            {/* <div className="top-posts text-black bg-white w-100 border border-1 fd-hover-border-primary p-3 my-5">
               <h5>Recents Posts</h5><hr />
               {
                 blogInfo.map((blogInfo) => {
@@ -43,9 +57,24 @@ const BlogPage = () => {
                   </div>
                 })
               }
+            </div> */}
+            <div className="d-none d-lg-block">
+              <h1>Blog Posts</h1>
+              <ul>
+                {data?.data.map((blog: {
+                  [x: string]: string | undefined; id: string; title: string; content: string
+                }) => (
+                  <li key={blog.id}>
+                    <img src={blog.img} alt={blog.title} className='w-100 h-75 cover' />
+                    <h2>{blog.title}</h2>
+                    <p>{blog.content}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <Tags />
-            <Archives />
+
+            {/* <Tags /> */}
+            {/* <Archives /> */}
           </aside>
         </div>
       </div>

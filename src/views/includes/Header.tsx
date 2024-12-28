@@ -37,6 +37,7 @@ const Header: FC = () => {
     const user = !isLogged ? null : JSON.parse(getItem('user') || '');
     const { data } = !user ? { data: null } : useGetUserQuery(user.id);
 
+
     useEffect(() => {
 
         if (data) {
@@ -102,17 +103,17 @@ const Header: FC = () => {
                     <div onClick={viewSearch}><a href='#' className="position-relative border-3 shadow border-light py-2 px-3 text-dark fd-hover-bg-primary"><i className="bi bi-search"></i></a></div>
                     <div>
                         <Link to={
-                                user ? (user.admin ? RoutePaths.admin : RoutePaths.userAccount) : RoutePaths.userAccount
-                            }
+                            user ? (user.admin ? RoutePaths.admin : RoutePaths.userAccount) : RoutePaths.userAccount
+                        }
                             className="position-relative border-3 shadow border-light py-2 px-3 text-dark fd-hover-bg-primary"><i className="bi bi-person"></i>
                         </Link>
                     </div>
+                </div>
             </div>
-        </div>
-    </div >
-        { showCart?<ViewCart setShow = { setShowCart } /> : null
-}
-{ showSearch ? <ViewSearch setShow={setShowSearch} /> : null }
+        </div >
+        {showCart ? <ViewCart setShow={setShowCart} /> : null
+        }
+        {showSearch ? <ViewSearch setShow={setShowSearch} /> : null}
     </>
     )
 }

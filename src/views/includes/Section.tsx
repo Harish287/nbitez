@@ -15,12 +15,18 @@ import {
 import Spinner from "../../components/Spinner";
 import { useGetAllCategoriesQuery } from "../../store/apiquery/categoryApiSlice";
 import RoutePaths from "../../config";
+import { useGetBlogQuery, useGetSliderOfferQuery } from "../../store/apiquery/productApiSlice";
 
 // Define the category type
 // interface CategoryType {
 //   id: number;
 //   title: string;
 // }
+
+
+
+
+
 
 interface CategoryProps {
   category: any;
@@ -126,25 +132,58 @@ const About: FC = () => {
 };
 
 const Promotion: FC = () => {
+
+  const { data, error, isLoading } = useGetSliderOfferQuery();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading slider offer</div>;
+  }
+
+  const offers = data?.data;
+
+
   return (
-    <div
-      className="section-promotion d-grid grid-0 grid-lg-2 gap-2"
-      style={{ minHeight: "170px" }}
-    >
-      <div className="p-0 shadow">
-        <img
-          className="w-100 h-100"
-          src="/img/banner1-1.jpg"
-          alt="promotion 1"
-        />
+    <div>
+       <h4 className=" text-black">Special Offeres </h4>
+      <div
+        className="section-promotion container my-5"
+        style={{ minHeight: "170px" }}
+      >
+       
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-4">
+          {offers && offers.length > 0 ? (
+            offers.map((offer: { id: React.Key | null | undefined; image: string | undefined; text: string | undefined; }) => (
+              <div key={offer.id} className="col">
+                <div className="">
+                  <div className="card-body">
+                    {/* <h5 className="card-title text-bg-danger text-center">Special Offer</h5> */}
+                    <div className="offer-image mb-3">
+                      <img
+                        src={offer.image}
+                        alt={offer.text}
+                        className="img-fluid rounded-3 w-100"
+                      />
+                    </div>
+                    {/* <p className="card-text">{offer.text}</p> */}
+                    <p className="text-muted">
+                      {/* <strong>Valid Dates:</strong> {offer.dates} */}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="col">
+              <p>No offers available at the moment.</p>
+            </div>
+          )}
+        </div>
       </div>
-      <div className="p-0 mt-3 mt-lg-0 shadow">
-        <img
-          className="w-100 h-100"
-          src="/img/banner1-2.jpg"
-          alt="promotion 1"
-        />
-      </div>
+
     </div>
   );
 };
@@ -261,7 +300,7 @@ const PopularProducts = ({
   ) : productsList?.data?.length ? (
     // If a category is selected, filter products by categoryId. Otherwise, show all products.
     productsList.data
-      .filter((product: any) => categoryId ? product.categorie_id   === categoryId : true)
+      .filter((product: any) => categoryId ? product.categorie_id === categoryId : true)
       .map((product: ProductType) => (
         <ProductCart {...product} type={type} key={product.id} />
       ))
@@ -271,7 +310,7 @@ const PopularProducts = ({
       <ProductCart {...product} type={type} key={product.id} />
     ))
   );
-  
+
   // console.log  ("dsada", productsList['data'].filter((e: any) => e["categorie_id "] == categoryId))
   return (
     <div
@@ -322,17 +361,42 @@ const SortProducts = () => {
 // }
 
 const BlogAndNews = ({ grid = 3 }: { grid?: number }) => {
+
+  const { data, error, isLoading } = useGetBlogQuery({});
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error fetching blogs!</div>;
+  }
+
+  console.log("aaa", data.data);
+
   return (
     <div
-      className={
+    // className={
+    //   "d-grid gap-3 grid-0 grid-lg-" +
+    //   grid +
+    //   " mb-0 mb-lg-2 justify-content-space-between gap-3"
+    // }
+    >
+      <ul className={
         "d-grid gap-3 grid-0 grid-lg-" +
         grid +
         " mb-0 mb-lg-2 justify-content-space-between gap-3"
-      }
-    >
-      {blogInfo.map((blog) => (
-        <Blog {...blog} key={blog.blog_id} />
-      ))}
+      }>
+        {data?.data.map((blog: {
+          [x: string]: string | undefined; id: string; title: string; content: string
+        }) => (
+          <li key={blog.id} className="bg-white">
+            <img src={blog.img} alt={blog.title} className='w-100 h-75 cover ' />
+            <h2>{blog.title}</h2>
+            <p>{blog.content}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
@@ -386,7 +450,7 @@ const Section = () => {
           <PopularProducts grid={4} />
         </div>
 
-        <div className="px-3 px-lg-5 py-4 mb-5">
+        <div className="px-3  py-4 mb-5">
           <About />
           <Promotion />
 

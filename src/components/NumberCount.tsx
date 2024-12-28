@@ -13,7 +13,7 @@ type OptionsType = {
 }
 
 const Numberquantity = ({ product, initialValue = 1, step = 1, min, max }: OptionsType) => {
-    console.log("ahitted");
+    // console.log("ahitted");
     const [quantity, setQuantity] = useState(product.quantity ?? initialValue);
     const dispatch = useAppDispatch();
 

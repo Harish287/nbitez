@@ -86,15 +86,15 @@ export const archives = [
 
 export const tags = [
 
-  { tag_id: 1, name: 'PASTA' },
+  { tag_id: 1, name: 'BISCUIT' },
   { tag_id: 2, name: 'RICE' },
   { tag_id: 3, name: 'JUICE' },
-  { tag_id: 4, name: 'NATURAL' },
-  { tag_id: 5, name: 'FOOD' },
+  // { tag_id: 4, name: 'NATURAL' },
+  // { tag_id: 5, name: 'FOOD' },
   { tag_id: 6, name: 'GRADE' },
   { tag_id: 7, name: 'NATURAL' },
   { tag_id: 8, name: 'FOOD' },
-  { tag_id: 9, name: 'GRADE' },
+  // { tag_id: 9, name: 'GRADE' },
 
 ]
 

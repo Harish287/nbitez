@@ -207,3 +207,16 @@ a {
 
 }
 
+
+/* Style for active address card with light green background */
+.active-card {
+  background-color: #d4edda;  /* Light green background (Bootstrap's "success" color) */
+  box-shadow: 0 4px 8px rgba(12, 207, 12, 0.2); /* Slight green shadow for effect */
+  transform: scale(1.05); /* Slightly enlarge the card */
+  transition: all 0.3s ease; /* Smooth transition for the click effect */
+}
+
+.card {
+  transition: all 0.3s ease; /* Smooth transition for the card */
+}
+

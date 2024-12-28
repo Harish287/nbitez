@@ -29,6 +29,7 @@ import About from "./views/About"
 import Privacypolicy from "./views/Privacypolicy"
 import CategoryDetails from "./views/CategoryDetails"
 import TermsAndConditions from "./views/termsAndcondition"
+import RefundPolicy from "./views/refundpolicy"
 
 
 function App() {
@@ -45,6 +46,8 @@ function App() {
       <Route path="/shop/category/:id" element={<CategoryDetails />} />
       <Route path={RoutePaths.termsandconditions} element={<TermsAndConditions />}></Route>
       <Route path={RoutePaths.privacypolicy} element={<Privacypolicy />}></Route>
+      <Route path={RoutePaths.refundpolicy} element={<RefundPolicy />}></Route>
+
       <Route path={RoutePaths.shopping} element={<ShoppingCart />}></Route>
       <Route element={<PrivateRoute type={0} />}>
         <Route path={RoutePaths.checkout} element={<Checkout />}></Route>

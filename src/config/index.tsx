@@ -1,4 +1,4 @@
-import TermsAndConditions from "../views/termsAndcondition"
+
 
 const RoutePaths = {
 
@@ -19,6 +19,7 @@ const RoutePaths = {
     about: '/about',
     privacypolicy: '/privacypolicy',
     termsandconditions:'/termsandconditions',
+    refundpolicy:'/refundpolicy',
 
     // USERS PATHS
 

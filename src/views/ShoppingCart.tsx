@@ -46,7 +46,13 @@ const ShoppingCart = () => {
                     return (
                       <tr className="p-3" key={product.id}>
                         <td scope="row w-25"><img src={(product.img)} alt={product.name} style={{ width: '50px', height: '50px' }} /></td>
-                        <td className='fw-bold'>{product.name}</td>
+                        <td className='fw-bold ' style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 1,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                    }} >{product.name}</td>
                         <td>{product.price}</td>
                         <td className='justify-content-center'><NumberCount product={product} min={1} /></td>
                  
